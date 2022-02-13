@@ -1,0 +1,23 @@
+{
+  "production": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-beardremovalmanage-production-200037-authRole",
+      "UnauthRoleArn": "arn:aws:iam::553258776374:role/amplify-beardremovalmanage-production-200037-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::553258776374:role/amplify-beardremovalmanage-production-200037-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-beardremovalmanage-production-200037-deployment",
+      "UnauthRoleName": "amplify-beardremovalmanage-production-200037-unauthRole",
+      "StackName": "amplify-beardremovalmanage-production-200037",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:553258776374:stack/amplify-beardremovalmanage-production-200037/2efa5220-8cbc-11ec-be8e-0a16b43319a7",
+      "AmplifyAppId": "dit8faxhmcnw1"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dit8faxhmcnw1",
+          "type": "cicd"
+        }
+      }
+    }
+  }
+}
