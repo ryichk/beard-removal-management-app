@@ -8,7 +8,7 @@ services:
     command: yarn dev
     ports:
       - 8000:3000
-    container_name: nextjs-boilerplate
+    container_name: beard-removal-management-app
 
   storybook:
     build: .
@@ -17,5 +17,5 @@ services:
     command: yarn storybook
     ports:
       - 6006:6006
-    container_name: nextjs-boilerplate-storybook
+    container_name: beard-removal-management-app-storybook
 
