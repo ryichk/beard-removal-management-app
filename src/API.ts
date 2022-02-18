@@ -6,11 +6,13 @@ export type CreateContractInput = {
   id?: string | null;
   date: string;
   fee: number;
+  type: string;
 };
 
 export type ModelContractConditionInput = {
   date?: ModelStringInput | null;
   fee?: ModelIntInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelContractConditionInput | null> | null;
   or?: Array<ModelContractConditionInput | null> | null;
   not?: ModelContractConditionInput | null;
@@ -73,6 +75,7 @@ export type Contract = {
   date: string;
   fee: number;
   beardRemovals?: ModelBeardRemovalConnection | null;
+  type: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -88,6 +91,7 @@ export type BeardRemoval = {
   id: string;
   area: string;
   number: number;
+  type: string;
   createdAt: string;
   updatedAt: string;
   contractBeardRemovalsId?: string | null;
@@ -98,6 +102,7 @@ export type UpdateContractInput = {
   id: string;
   date?: string | null;
   fee?: number | null;
+  type?: string | null;
 };
 
 export type DeleteContractInput = {
@@ -108,6 +113,7 @@ export type CreateBeardRemovalInput = {
   id?: string | null;
   area: string;
   number: number;
+  type: string;
   contractBeardRemovalsId?: string | null;
   progressBeardRemovalsId?: string | null;
 };
@@ -115,6 +121,7 @@ export type CreateBeardRemovalInput = {
 export type ModelBeardRemovalConditionInput = {
   area?: ModelStringInput | null;
   number?: ModelIntInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelBeardRemovalConditionInput | null> | null;
   or?: Array<ModelBeardRemovalConditionInput | null> | null;
   not?: ModelBeardRemovalConditionInput | null;
@@ -142,6 +149,7 @@ export type UpdateBeardRemovalInput = {
   id: string;
   area?: string | null;
   number?: number | null;
+  type?: string | null;
   contractBeardRemovalsId?: string | null;
   progressBeardRemovalsId?: string | null;
 };
@@ -153,10 +161,12 @@ export type DeleteBeardRemovalInput = {
 export type CreateProgressInput = {
   id?: string | null;
   date: string;
+  type: string;
 };
 
 export type ModelProgressConditionInput = {
   date?: ModelStringInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelProgressConditionInput | null> | null;
   or?: Array<ModelProgressConditionInput | null> | null;
   not?: ModelProgressConditionInput | null;
@@ -167,6 +177,7 @@ export type Progress = {
   id: string;
   date: string;
   beardRemovals?: ModelBeardRemovalConnection | null;
+  type: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -174,6 +185,7 @@ export type Progress = {
 export type UpdateProgressInput = {
   id: string;
   date?: string | null;
+  type?: string | null;
 };
 
 export type DeleteProgressInput = {
@@ -184,6 +196,7 @@ export type ModelContractFilterInput = {
   id?: ModelIDInput | null;
   date?: ModelStringInput | null;
   fee?: ModelIntInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelContractFilterInput | null> | null;
   or?: Array<ModelContractFilterInput | null> | null;
   not?: ModelContractFilterInput | null;
@@ -199,6 +212,7 @@ export type ModelBeardRemovalFilterInput = {
   id?: ModelIDInput | null;
   area?: ModelStringInput | null;
   number?: ModelIntInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelBeardRemovalFilterInput | null> | null;
   or?: Array<ModelBeardRemovalFilterInput | null> | null;
   not?: ModelBeardRemovalFilterInput | null;
@@ -209,6 +223,7 @@ export type ModelBeardRemovalFilterInput = {
 export type ModelProgressFilterInput = {
   id?: ModelIDInput | null;
   date?: ModelStringInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelProgressFilterInput | null> | null;
   or?: Array<ModelProgressFilterInput | null> | null;
   not?: ModelProgressFilterInput | null;
@@ -219,6 +234,21 @@ export type ModelProgressConnection = {
   items: Array<Progress>;
   nextToken?: string | null;
 };
+
+export type ModelStringKeyConditionInput = {
+  eq?: string | null;
+  le?: string | null;
+  lt?: string | null;
+  ge?: string | null;
+  gt?: string | null;
+  between?: Array<string | null> | null;
+  beginsWith?: string | null;
+};
+
+export enum ModelSortDirection {
+  ASC = 'ASC',
+  DESC = 'DESC',
+}
 
 export type CreateContractMutationVariables = {
   input: CreateContractInput;
@@ -238,6 +268,7 @@ export type CreateContractMutation = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -245,6 +276,7 @@ export type CreateContractMutation = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -268,6 +300,7 @@ export type UpdateContractMutation = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -275,6 +308,7 @@ export type UpdateContractMutation = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -298,6 +332,7 @@ export type DeleteContractMutation = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -305,6 +340,7 @@ export type DeleteContractMutation = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -321,6 +357,7 @@ export type CreateBeardRemovalMutation = {
     id: string;
     area: string;
     number: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
@@ -339,6 +376,7 @@ export type UpdateBeardRemovalMutation = {
     id: string;
     area: string;
     number: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
@@ -357,6 +395,7 @@ export type DeleteBeardRemovalMutation = {
     id: string;
     area: string;
     number: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
@@ -381,6 +420,7 @@ export type CreateProgressMutation = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -388,6 +428,7 @@ export type CreateProgressMutation = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -410,6 +451,7 @@ export type UpdateProgressMutation = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -417,6 +459,7 @@ export type UpdateProgressMutation = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -439,6 +482,7 @@ export type DeleteProgressMutation = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -446,6 +490,7 @@ export type DeleteProgressMutation = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -468,6 +513,7 @@ export type GetContractQuery = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -475,6 +521,7 @@ export type GetContractQuery = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -498,6 +545,7 @@ export type ListContractsQuery = {
         __typename: 'ModelBeardRemovalConnection';
         nextToken?: string | null;
       } | null;
+      type: string;
       createdAt: string;
       updatedAt: string;
     }>;
@@ -515,6 +563,7 @@ export type GetBeardRemovalQuery = {
     id: string;
     area: string;
     number: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
@@ -536,6 +585,7 @@ export type ListBeardRemovalsQuery = {
       id: string;
       area: string;
       number: number;
+      type: string;
       createdAt: string;
       updatedAt: string;
       contractBeardRemovalsId?: string | null;
@@ -561,6 +611,7 @@ export type GetProgressQuery = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -568,6 +619,7 @@ export type GetProgressQuery = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -590,6 +642,91 @@ export type ListProgressesQuery = {
         __typename: 'ModelBeardRemovalConnection';
         nextToken?: string | null;
       } | null;
+      type: string;
+      createdAt: string;
+      updatedAt: string;
+    }>;
+    nextToken?: string | null;
+  } | null;
+};
+
+export type ContractsByDateQueryVariables = {
+  type?: string | null;
+  date?: ModelStringKeyConditionInput | null;
+  sortDirection?: ModelSortDirection | null;
+  filter?: ModelContractFilterInput | null;
+  limit?: number | null;
+  nextToken?: string | null;
+};
+
+export type ContractsByDateQuery = {
+  contractsByDate?: {
+    __typename: 'ModelContractConnection';
+    items: Array<{
+      __typename: 'Contract';
+      id: string;
+      date: string;
+      fee: number;
+      beardRemovals?: {
+        __typename: 'ModelBeardRemovalConnection';
+        nextToken?: string | null;
+      } | null;
+      type: string;
+      createdAt: string;
+      updatedAt: string;
+    }>;
+    nextToken?: string | null;
+  } | null;
+};
+
+export type BeardRemovalsByAreaQueryVariables = {
+  type?: string | null;
+  area?: ModelStringKeyConditionInput | null;
+  sortDirection?: ModelSortDirection | null;
+  filter?: ModelBeardRemovalFilterInput | null;
+  limit?: number | null;
+  nextToken?: string | null;
+};
+
+export type BeardRemovalsByAreaQuery = {
+  beardRemovalsByArea?: {
+    __typename: 'ModelBeardRemovalConnection';
+    items: Array<{
+      __typename: 'BeardRemoval';
+      id: string;
+      area: string;
+      number: number;
+      type: string;
+      createdAt: string;
+      updatedAt: string;
+      contractBeardRemovalsId?: string | null;
+      progressBeardRemovalsId?: string | null;
+    }>;
+    nextToken?: string | null;
+  } | null;
+};
+
+export type ProgressesByDateQueryVariables = {
+  type?: string | null;
+  date?: ModelStringKeyConditionInput | null;
+  sortDirection?: ModelSortDirection | null;
+  filter?: ModelProgressFilterInput | null;
+  limit?: number | null;
+  nextToken?: string | null;
+};
+
+export type ProgressesByDateQuery = {
+  progressesByDate?: {
+    __typename: 'ModelProgressConnection';
+    items: Array<{
+      __typename: 'Progress';
+      id: string;
+      date: string;
+      beardRemovals?: {
+        __typename: 'ModelBeardRemovalConnection';
+        nextToken?: string | null;
+      } | null;
+      type: string;
       createdAt: string;
       updatedAt: string;
     }>;
@@ -610,6 +747,7 @@ export type OnCreateContractSubscription = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -617,6 +755,7 @@ export type OnCreateContractSubscription = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -635,6 +774,7 @@ export type OnUpdateContractSubscription = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -642,6 +782,7 @@ export type OnUpdateContractSubscription = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -660,6 +801,7 @@ export type OnDeleteContractSubscription = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -667,6 +809,7 @@ export type OnDeleteContractSubscription = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -678,6 +821,7 @@ export type OnCreateBeardRemovalSubscription = {
     id: string;
     area: string;
     number: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
@@ -691,6 +835,7 @@ export type OnUpdateBeardRemovalSubscription = {
     id: string;
     area: string;
     number: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
@@ -704,6 +849,7 @@ export type OnDeleteBeardRemovalSubscription = {
     id: string;
     area: string;
     number: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
@@ -723,6 +869,7 @@ export type OnCreateProgressSubscription = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -730,6 +877,7 @@ export type OnCreateProgressSubscription = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -747,6 +895,7 @@ export type OnUpdateProgressSubscription = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -754,6 +903,7 @@ export type OnUpdateProgressSubscription = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;
@@ -771,6 +921,7 @@ export type OnDeleteProgressSubscription = {
         id: string;
         area: string;
         number: number;
+        type: string;
         createdAt: string;
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
@@ -778,6 +929,7 @@ export type OnDeleteProgressSubscription = {
       }>;
       nextToken?: string | null;
     } | null;
+    type: string;
     createdAt: string;
     updatedAt: string;
   } | null;

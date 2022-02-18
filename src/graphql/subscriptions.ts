@@ -13,6 +13,7 @@ export const onCreateContract = /* GraphQL */ `
           id
           area
           number
+          type
           createdAt
           updatedAt
           contractBeardRemovalsId
@@ -20,6 +21,7 @@ export const onCreateContract = /* GraphQL */ `
         }
         nextToken
       }
+      type
       createdAt
       updatedAt
     }
@@ -36,6 +38,7 @@ export const onUpdateContract = /* GraphQL */ `
           id
           area
           number
+          type
           createdAt
           updatedAt
           contractBeardRemovalsId
@@ -43,6 +46,7 @@ export const onUpdateContract = /* GraphQL */ `
         }
         nextToken
       }
+      type
       createdAt
       updatedAt
     }
@@ -59,6 +63,7 @@ export const onDeleteContract = /* GraphQL */ `
           id
           area
           number
+          type
           createdAt
           updatedAt
           contractBeardRemovalsId
@@ -66,6 +71,7 @@ export const onDeleteContract = /* GraphQL */ `
         }
         nextToken
       }
+      type
       createdAt
       updatedAt
     }
@@ -77,6 +83,7 @@ export const onCreateBeardRemoval = /* GraphQL */ `
       id
       area
       number
+      type
       createdAt
       updatedAt
       contractBeardRemovalsId
@@ -90,6 +97,7 @@ export const onUpdateBeardRemoval = /* GraphQL */ `
       id
       area
       number
+      type
       createdAt
       updatedAt
       contractBeardRemovalsId
@@ -103,6 +111,7 @@ export const onDeleteBeardRemoval = /* GraphQL */ `
       id
       area
       number
+      type
       createdAt
       updatedAt
       contractBeardRemovalsId
@@ -120,6 +129,7 @@ export const onCreateProgress = /* GraphQL */ `
           id
           area
           number
+          type
           createdAt
           updatedAt
           contractBeardRemovalsId
@@ -127,6 +137,7 @@ export const onCreateProgress = /* GraphQL */ `
         }
         nextToken
       }
+      type
       createdAt
       updatedAt
     }
@@ -142,6 +153,7 @@ export const onUpdateProgress = /* GraphQL */ `
           id
           area
           number
+          type
           createdAt
           updatedAt
           contractBeardRemovalsId
@@ -149,6 +161,7 @@ export const onUpdateProgress = /* GraphQL */ `
         }
         nextToken
       }
+      type
       createdAt
       updatedAt
     }
@@ -164,6 +177,7 @@ export const onDeleteProgress = /* GraphQL */ `
           id
           area
           number
+          type
           createdAt
           updatedAt
           contractBeardRemovalsId
@@ -171,6 +185,7 @@ export const onDeleteProgress = /* GraphQL */ `
         }
         nextToken
       }
+      type
       createdAt
       updatedAt
     }

@@ -13,6 +13,7 @@ export const getContract = /* GraphQL */ `
           id
           area
           number
+          type
           createdAt
           updatedAt
           contractBeardRemovalsId
@@ -20,6 +21,7 @@ export const getContract = /* GraphQL */ `
         }
         nextToken
       }
+      type
       createdAt
       updatedAt
     }
@@ -35,6 +37,7 @@ export const listContracts = /* GraphQL */ `
         beardRemovals {
           nextToken
         }
+        type
         createdAt
         updatedAt
       }
@@ -48,6 +51,7 @@ export const getBeardRemoval = /* GraphQL */ `
       id
       area
       number
+      type
       createdAt
       updatedAt
       contractBeardRemovalsId
@@ -62,6 +66,7 @@ export const listBeardRemovals = /* GraphQL */ `
         id
         area
         number
+        type
         createdAt
         updatedAt
         contractBeardRemovalsId
@@ -81,6 +86,7 @@ export const getProgress = /* GraphQL */ `
           id
           area
           number
+          type
           createdAt
           updatedAt
           contractBeardRemovalsId
@@ -88,6 +94,7 @@ export const getProgress = /* GraphQL */ `
         }
         nextToken
       }
+      type
       createdAt
       updatedAt
     }
@@ -102,6 +109,101 @@ export const listProgresses = /* GraphQL */ `
         beardRemovals {
           nextToken
         }
+        type
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const contractsByDate = /* GraphQL */ `
+  query ContractsByDate(
+    $type: String
+    $date: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelContractFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    contractsByDate(
+      type: $type
+      date: $date
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        date
+        fee
+        beardRemovals {
+          nextToken
+        }
+        type
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const beardRemovalsByArea = /* GraphQL */ `
+  query BeardRemovalsByArea(
+    $type: String
+    $area: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelBeardRemovalFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    beardRemovalsByArea(
+      type: $type
+      area: $area
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        area
+        number
+        type
+        createdAt
+        updatedAt
+        contractBeardRemovalsId
+        progressBeardRemovalsId
+      }
+      nextToken
+    }
+  }
+`;
+export const progressesByDate = /* GraphQL */ `
+  query ProgressesByDate(
+    $type: String
+    $date: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelProgressFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    progressesByDate(
+      type: $type
+      date: $date
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        date
+        beardRemovals {
+          nextToken
+        }
+        type
         createdAt
         updatedAt
       }
