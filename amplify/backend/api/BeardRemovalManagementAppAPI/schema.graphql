@@ -7,16 +7,19 @@ type Contract @model {
   date: AWSDate!
   fee: Int!
   beardRemovals: [BeardRemoval] @hasMany
+  type: String! @index(name: "contractsByDate", queryField: "contractsByDate", sortKeyFields: ["date"])
 }
 
 type BeardRemoval @model {
   id: ID!
   area: String!
   number: Int!
+  type: String! @index(name: "beardRemovalsByArea", queryField: "beardRemovalsByArea", sortKeyFields: ["area"])
 }
 
 type Progress @model {
   id: ID!
   date: AWSDate!
   beardRemovals: [BeardRemoval] @hasMany
+  type: String! @index(name: "progressesByDate", queryField: "progressesByDate", sortKeyFields: ["date"])
 }
