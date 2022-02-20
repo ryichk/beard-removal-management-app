@@ -9,13 +9,15 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import type {
-  Contract,
   BeardRemoval,
-  Progress,
+  BeardRemovalsByAreaQuery,
+  Contract,
   CreateContractMutation,
-  ContractsByDateQuery,
-  ProgressesByDateQuery,
+  CreateBeardRemovalMutation,
   CreateProgressMutation,
+  ContractsByDateQuery,
+  Progress,
+  ProgressesByDateQuery,
 } from '../API';
 import {
   createBeardRemoval,
@@ -138,12 +140,12 @@ const Home: NextPage = () => {
         };
       }
 
-      const response = await API.graphql(
+      const response = (await API.graphql(
         graphqlOperation(createBeardRemoval, {
           input: params,
         }),
-      );
-      setModels((prev) => [...prev, response.data.createBeardRemoval]);
+      )) as GraphQLResult<CreateBeardRemovalMutation>;
+      setModels((prev) => [...prev, response?.data?.createBeardRemoval as BeardRemovalState]);
     }
   };
 
@@ -199,9 +201,10 @@ const Home: NextPage = () => {
       const listContractsResponse = (await API.graphql(
         graphqlOperation(contractsByDate, { type: 'Contract' }),
       )) as GraphQLResult<ContractsByDateQuery>;
-      if (listContractsResponse.data?.contractsByDate) {
-        setContracts(listContractsResponse.data.contractsByDate.items);
-        for (const contract of listContractsResponse.data.contractsByDate.items) {
+      const contractByDateData = listContractsResponse.data?.contractsByDate;
+      if (contractByDateData) {
+        setContracts(contractByDateData.items as Array<Contract>);
+        for (const contract of contractByDateData.items) {
           setTotalFee((prev) => prev + contract.fee);
         }
       }
@@ -209,15 +212,15 @@ const Home: NextPage = () => {
       const listProgressesResponse = (await API.graphql(
         graphqlOperation(progressesByDate, { type: 'Progress' }),
       )) as GraphQLResult<ProgressesByDateQuery>;
-      if (listProgressesResponse.data?.progressesByDate)
-        setProgresses(listProgressesResponse.data.progressesByDate.items);
+      const progressesByDateData = listProgressesResponse.data?.progressesByDate;
+      if (progressesByDateData) setProgresses(progressesByDateData.items as Array<Progress>);
 
       const setBeardRemovalsInit = (
         items: Array<BeardRemoval>,
         setBeardRemovals: React.Dispatch<React.SetStateAction<Array<BeardRemovalState>>>,
       ) => {
         let id;
-        let ids = [];
+        let ids: Array<string> = [];
         let area = '';
         let number = 0;
         const beardRemovalsArray: Array<BeardRemovalState> = [];
@@ -245,7 +248,7 @@ const Home: NextPage = () => {
         return beardRemovalsArray;
       };
 
-      const listContractBeardRemovals = await API.graphql({
+      const listContractBeardRemovals = (await API.graphql({
         query: beardRemovalsByArea,
         variables: {
           filter: {
@@ -256,16 +259,16 @@ const Home: NextPage = () => {
           },
           type: 'ContractBeardRemoval',
         },
-      });
+      })) as GraphQLResult<BeardRemovalsByAreaQuery>;
 
       const contractBeardRemovalsByAreaItems =
-        listContractBeardRemovals.data.beardRemovalsByArea.items;
+        listContractBeardRemovals?.data?.beardRemovalsByArea?.items;
       const contractBeardRemovalsArray = setBeardRemovalsInit(
-        contractBeardRemovalsByAreaItems,
+        contractBeardRemovalsByAreaItems as Array<BeardRemoval>,
         setContractBeardRemovals,
       );
 
-      const listProgressBeardRemovals = await API.graphql({
+      const listProgressBeardRemovals = (await API.graphql({
         query: beardRemovalsByArea,
         variables: {
           filter: {
@@ -276,12 +279,12 @@ const Home: NextPage = () => {
           },
           type: 'ProgressBeardRemoval',
         },
-      });
+      })) as GraphQLResult<BeardRemovalsByAreaQuery>;
       const progressBeardRemovalsByAreaItems =
-        listProgressBeardRemovals.data.beardRemovalsByArea.items;
-      setProgressBeardRemovals(progressBeardRemovalsByAreaItems);
+        listProgressBeardRemovals?.data?.beardRemovalsByArea?.items;
+      setProgressBeardRemovals(progressBeardRemovalsByAreaItems as Array<BeardRemoval>);
       const progressBeardRemovalsArray = setBeardRemovalsInit(
-        progressBeardRemovalsByAreaItems,
+        progressBeardRemovalsByAreaItems as Array<BeardRemoval>,
         setTotalProgressBeardRemovals,
       );
 
@@ -443,7 +446,10 @@ const Home: NextPage = () => {
                 <button
                   className='col-span-1 mt-1 ml-2 btn btn-outline btn-square btn-xs'
                   onClick={() =>
-                    handleDeleteBeardRemoval(contractBeardRemoval.ids, contractBeardRemoval.area)
+                    handleDeleteBeardRemoval(
+                      contractBeardRemoval.ids as Array<string>,
+                      contractBeardRemoval.area,
+                    )
                   }
                 >
                   -
