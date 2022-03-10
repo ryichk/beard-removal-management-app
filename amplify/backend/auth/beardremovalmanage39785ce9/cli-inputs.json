@@ -1,0 +1,74 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "resourceNameTruncated": "beardr39785ce9",
+    "userPoolName": "beardremovalmanage39785ce9_userpool_39785ce9",
+    "autoVerifiedAttributes": ["email"],
+    "mfaConfiguration": "OPTIONAL",
+    "mfaTypes": ["SMS Text Message"],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": true,
+    "passwordPolicyMinLength": "12",
+    "passwordPolicyCharacters": ["Requires Lowercase", "Requires Uppercase", "Requires Numbers"],
+    "requiredAttributes": ["email"],
+    "aliasAttributes": [],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+      "address",
+      "birthdate",
+      "gender",
+      "nickname",
+      "picture",
+      "profile",
+      "website",
+      "email"
+    ],
+    "userpoolClientReadAttributes": [
+      "address",
+      "birthdate",
+      "email",
+      "gender",
+      "locale",
+      "nickname",
+      "picture",
+      "profile",
+      "website"
+    ],
+    "userpoolClientLambdaRole": "beardr39785ce9_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": true,
+    "sharedId": "39785ce9",
+    "resourceName": "beardremovalmanage39785ce9",
+    "authSelections": "userPoolOnly",
+    "useDefault": "manual",
+    "hostedUI": true,
+    "triggers": {},
+    "hostedUIDomainName": "beard-removal-management-app",
+    "authProvidersUserPool": ["Google"],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "userPoolGroupList": ["beardremovalmanagement"],
+    "serviceName": "Cognito",
+    "usernameCaseSensitive": false,
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": ["AuthRole", "Arn"]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": ["UnauthRole", "Arn"]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "permissions": [],
+    "userPoolGroups": true,
+    "adminQueries": false,
+    "authProviders": [],
+    "hostedUIProviderCreds": "[]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://main.dit8faxhmcnw1.amplifyapp.com/\",\"http://localhost:3000/\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\",\"https://main.dit8faxhmcnw1.amplifyapp.com/\"]}"
+  }
+}
