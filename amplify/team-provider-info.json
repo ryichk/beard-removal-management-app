@@ -17,6 +17,9 @@
           "appId": "dit8faxhmcnw1",
           "type": "cicd"
         }
+      },
+      "auth": {
+        "beardremovalmanage39785ce9": {}
       }
     }
   }
