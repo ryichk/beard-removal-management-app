@@ -1,5 +1,5 @@
-// import Link from 'next/link';
 import { Auth } from 'aws-amplify';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -53,11 +53,19 @@ export const Header = () => {
           </Link>
         </div> */}
         {user ? (
-          <p>{user.attributes.email}</p>
+          <>
+            <p className='self-center'>{user.attributes.email}</p>
+            <button
+              className='btn btn-sm btn-link link link-primary'
+              onClick={() => handleSignOut()}
+            >
+              Sign Out
+            </button>
+          </>
         ) : (
-          <button className='btn btn-sm btn-link' onClick={() => handleSignOut()}>
-            Sign Out
-          </button>
+          <Link href='/login'>
+            <a className='btn btn-sm btn-link link'>Sign In</a>
+          </Link>
         )}
       </div>
       <hr className='mt-5' />
