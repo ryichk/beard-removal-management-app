@@ -1,8 +1,4 @@
-# This "input" configures a global authorization rule to enable public access to
-# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
-
-type Contract @model {
+type Contract @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   date: AWSDate!
   fee: Int!
@@ -10,14 +6,14 @@ type Contract @model {
   type: String! @index(name: "contractsByDate", queryField: "contractsByDate", sortKeyFields: ["date"])
 }
 
-type BeardRemoval @model {
+type BeardRemoval @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   area: String!
   number: Int!
   type: String! @index(name: "beardRemovalsByArea", queryField: "beardRemovalsByArea", sortKeyFields: ["area"])
 }
 
-type Progress @model {
+type Progress @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   date: AWSDate!
   beardRemovals: [BeardRemoval] @hasMany

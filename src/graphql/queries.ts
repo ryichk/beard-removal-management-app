@@ -18,12 +18,14 @@ export const getContract = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -40,6 +42,7 @@ export const listContracts = /* GraphQL */ `
         type
         createdAt
         updatedAt
+        owner
       }
       nextToken
     }
@@ -56,6 +59,7 @@ export const getBeardRemoval = /* GraphQL */ `
       updatedAt
       contractBeardRemovalsId
       progressBeardRemovalsId
+      owner
     }
   }
 `;
@@ -71,6 +75,7 @@ export const listBeardRemovals = /* GraphQL */ `
         updatedAt
         contractBeardRemovalsId
         progressBeardRemovalsId
+        owner
       }
       nextToken
     }
@@ -91,12 +96,14 @@ export const getProgress = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -112,6 +119,7 @@ export const listProgresses = /* GraphQL */ `
         type
         createdAt
         updatedAt
+        owner
       }
       nextToken
     }
@@ -144,6 +152,7 @@ export const contractsByDate = /* GraphQL */ `
         type
         createdAt
         updatedAt
+        owner
       }
       nextToken
     }
@@ -175,6 +184,7 @@ export const beardRemovalsByArea = /* GraphQL */ `
         updatedAt
         contractBeardRemovalsId
         progressBeardRemovalsId
+        owner
       }
       nextToken
     }
@@ -206,6 +216,7 @@ export const progressesByDate = /* GraphQL */ `
         type
         createdAt
         updatedAt
+        owner
       }
       nextToken
     }

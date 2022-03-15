@@ -18,12 +18,14 @@ export const createContract = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -43,12 +45,14 @@ export const updateContract = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -68,12 +72,14 @@ export const deleteContract = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -91,6 +97,7 @@ export const createBeardRemoval = /* GraphQL */ `
       updatedAt
       contractBeardRemovalsId
       progressBeardRemovalsId
+      owner
     }
   }
 `;
@@ -108,6 +115,7 @@ export const updateBeardRemoval = /* GraphQL */ `
       updatedAt
       contractBeardRemovalsId
       progressBeardRemovalsId
+      owner
     }
   }
 `;
@@ -125,6 +133,7 @@ export const deleteBeardRemoval = /* GraphQL */ `
       updatedAt
       contractBeardRemovalsId
       progressBeardRemovalsId
+      owner
     }
   }
 `;
@@ -143,12 +152,14 @@ export const createProgress = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -167,12 +178,14 @@ export const updateProgress = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -191,12 +204,14 @@ export const deleteProgress = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
