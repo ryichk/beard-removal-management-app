@@ -1,5 +1,9 @@
 {
   "AppSyncApiName": "BeardRemovalManagementAppAPI",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": ["authbeardremovalmanage39785ce9", "Outputs.UserPoolId"]
+  },
+  "AuthModeLastUpdated": "2022-03-13T17:18:06.804Z"
 }

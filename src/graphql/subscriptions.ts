@@ -3,8 +3,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateContract = /* GraphQL */ `
-  subscription OnCreateContract {
-    onCreateContract {
+  subscription OnCreateContract($owner: String) {
+    onCreateContract(owner: $owner) {
       id
       date
       fee
@@ -18,18 +18,20 @@ export const onCreateContract = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onUpdateContract = /* GraphQL */ `
-  subscription OnUpdateContract {
-    onUpdateContract {
+  subscription OnUpdateContract($owner: String) {
+    onUpdateContract(owner: $owner) {
       id
       date
       fee
@@ -43,18 +45,20 @@ export const onUpdateContract = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onDeleteContract = /* GraphQL */ `
-  subscription OnDeleteContract {
-    onDeleteContract {
+  subscription OnDeleteContract($owner: String) {
+    onDeleteContract(owner: $owner) {
       id
       date
       fee
@@ -68,18 +72,20 @@ export const onDeleteContract = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onCreateBeardRemoval = /* GraphQL */ `
-  subscription OnCreateBeardRemoval {
-    onCreateBeardRemoval {
+  subscription OnCreateBeardRemoval($owner: String) {
+    onCreateBeardRemoval(owner: $owner) {
       id
       area
       number
@@ -88,12 +94,13 @@ export const onCreateBeardRemoval = /* GraphQL */ `
       updatedAt
       contractBeardRemovalsId
       progressBeardRemovalsId
+      owner
     }
   }
 `;
 export const onUpdateBeardRemoval = /* GraphQL */ `
-  subscription OnUpdateBeardRemoval {
-    onUpdateBeardRemoval {
+  subscription OnUpdateBeardRemoval($owner: String) {
+    onUpdateBeardRemoval(owner: $owner) {
       id
       area
       number
@@ -102,12 +109,13 @@ export const onUpdateBeardRemoval = /* GraphQL */ `
       updatedAt
       contractBeardRemovalsId
       progressBeardRemovalsId
+      owner
     }
   }
 `;
 export const onDeleteBeardRemoval = /* GraphQL */ `
-  subscription OnDeleteBeardRemoval {
-    onDeleteBeardRemoval {
+  subscription OnDeleteBeardRemoval($owner: String) {
+    onDeleteBeardRemoval(owner: $owner) {
       id
       area
       number
@@ -116,12 +124,13 @@ export const onDeleteBeardRemoval = /* GraphQL */ `
       updatedAt
       contractBeardRemovalsId
       progressBeardRemovalsId
+      owner
     }
   }
 `;
 export const onCreateProgress = /* GraphQL */ `
-  subscription OnCreateProgress {
-    onCreateProgress {
+  subscription OnCreateProgress($owner: String) {
+    onCreateProgress(owner: $owner) {
       id
       date
       beardRemovals {
@@ -134,18 +143,20 @@ export const onCreateProgress = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onUpdateProgress = /* GraphQL */ `
-  subscription OnUpdateProgress {
-    onUpdateProgress {
+  subscription OnUpdateProgress($owner: String) {
+    onUpdateProgress(owner: $owner) {
       id
       date
       beardRemovals {
@@ -158,18 +169,20 @@ export const onUpdateProgress = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onDeleteProgress = /* GraphQL */ `
-  subscription OnDeleteProgress {
-    onDeleteProgress {
+  subscription OnDeleteProgress($owner: String) {
+    onDeleteProgress(owner: $owner) {
       id
       date
       beardRemovals {
@@ -182,12 +195,14 @@ export const onDeleteProgress = /* GraphQL */ `
           updatedAt
           contractBeardRemovalsId
           progressBeardRemovalsId
+          owner
         }
         nextToken
       }
       type
       createdAt
       updatedAt
+      owner
     }
   }
 `;

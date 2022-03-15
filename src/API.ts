@@ -78,6 +78,7 @@ export type Contract = {
   type: string;
   createdAt: string;
   updatedAt: string;
+  owner?: string | null;
 };
 
 export type ModelBeardRemovalConnection = {
@@ -96,6 +97,7 @@ export type BeardRemoval = {
   updatedAt: string;
   contractBeardRemovalsId?: string | null;
   progressBeardRemovalsId?: string | null;
+  owner?: string | null;
 };
 
 export type UpdateContractInput = {
@@ -180,6 +182,7 @@ export type Progress = {
   type: string;
   createdAt: string;
   updatedAt: string;
+  owner?: string | null;
 };
 
 export type UpdateProgressInput = {
@@ -273,12 +276,14 @@ export type CreateContractMutation = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
 };
 
@@ -305,12 +310,14 @@ export type UpdateContractMutation = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
 };
 
@@ -337,12 +344,14 @@ export type DeleteContractMutation = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
 };
 
@@ -362,6 +371,7 @@ export type CreateBeardRemovalMutation = {
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
     progressBeardRemovalsId?: string | null;
+    owner?: string | null;
   } | null;
 };
 
@@ -381,6 +391,7 @@ export type UpdateBeardRemovalMutation = {
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
     progressBeardRemovalsId?: string | null;
+    owner?: string | null;
   } | null;
 };
 
@@ -400,6 +411,7 @@ export type DeleteBeardRemovalMutation = {
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
     progressBeardRemovalsId?: string | null;
+    owner?: string | null;
   } | null;
 };
 
@@ -425,12 +437,14 @@ export type CreateProgressMutation = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
 };
 
@@ -456,12 +470,14 @@ export type UpdateProgressMutation = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
 };
 
@@ -487,12 +503,14 @@ export type DeleteProgressMutation = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
 };
 
@@ -518,12 +536,14 @@ export type GetContractQuery = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
 };
 
@@ -548,6 +568,7 @@ export type ListContractsQuery = {
       type: string;
       createdAt: string;
       updatedAt: string;
+      owner?: string | null;
     }>;
     nextToken?: string | null;
   } | null;
@@ -568,6 +589,7 @@ export type GetBeardRemovalQuery = {
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
     progressBeardRemovalsId?: string | null;
+    owner?: string | null;
   } | null;
 };
 
@@ -590,6 +612,7 @@ export type ListBeardRemovalsQuery = {
       updatedAt: string;
       contractBeardRemovalsId?: string | null;
       progressBeardRemovalsId?: string | null;
+      owner?: string | null;
     }>;
     nextToken?: string | null;
   } | null;
@@ -616,12 +639,14 @@ export type GetProgressQuery = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
 };
 
@@ -645,6 +670,7 @@ export type ListProgressesQuery = {
       type: string;
       createdAt: string;
       updatedAt: string;
+      owner?: string | null;
     }>;
     nextToken?: string | null;
   } | null;
@@ -674,6 +700,7 @@ export type ContractsByDateQuery = {
       type: string;
       createdAt: string;
       updatedAt: string;
+      owner?: string | null;
     }>;
     nextToken?: string | null;
   } | null;
@@ -701,6 +728,7 @@ export type BeardRemovalsByAreaQuery = {
       updatedAt: string;
       contractBeardRemovalsId?: string | null;
       progressBeardRemovalsId?: string | null;
+      owner?: string | null;
     }>;
     nextToken?: string | null;
   } | null;
@@ -729,9 +757,14 @@ export type ProgressesByDateQuery = {
       type: string;
       createdAt: string;
       updatedAt: string;
+      owner?: string | null;
     }>;
     nextToken?: string | null;
   } | null;
+};
+
+export type OnCreateContractSubscriptionVariables = {
+  owner?: string | null;
 };
 
 export type OnCreateContractSubscription = {
@@ -752,13 +785,19 @@ export type OnCreateContractSubscription = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
+};
+
+export type OnUpdateContractSubscriptionVariables = {
+  owner?: string | null;
 };
 
 export type OnUpdateContractSubscription = {
@@ -779,13 +818,19 @@ export type OnUpdateContractSubscription = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
+};
+
+export type OnDeleteContractSubscriptionVariables = {
+  owner?: string | null;
 };
 
 export type OnDeleteContractSubscription = {
@@ -806,13 +851,19 @@ export type OnDeleteContractSubscription = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
+};
+
+export type OnCreateBeardRemovalSubscriptionVariables = {
+  owner?: string | null;
 };
 
 export type OnCreateBeardRemovalSubscription = {
@@ -826,7 +877,12 @@ export type OnCreateBeardRemovalSubscription = {
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
     progressBeardRemovalsId?: string | null;
+    owner?: string | null;
   } | null;
+};
+
+export type OnUpdateBeardRemovalSubscriptionVariables = {
+  owner?: string | null;
 };
 
 export type OnUpdateBeardRemovalSubscription = {
@@ -840,7 +896,12 @@ export type OnUpdateBeardRemovalSubscription = {
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
     progressBeardRemovalsId?: string | null;
+    owner?: string | null;
   } | null;
+};
+
+export type OnDeleteBeardRemovalSubscriptionVariables = {
+  owner?: string | null;
 };
 
 export type OnDeleteBeardRemovalSubscription = {
@@ -854,7 +915,12 @@ export type OnDeleteBeardRemovalSubscription = {
     updatedAt: string;
     contractBeardRemovalsId?: string | null;
     progressBeardRemovalsId?: string | null;
+    owner?: string | null;
   } | null;
+};
+
+export type OnCreateProgressSubscriptionVariables = {
+  owner?: string | null;
 };
 
 export type OnCreateProgressSubscription = {
@@ -874,13 +940,19 @@ export type OnCreateProgressSubscription = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
+};
+
+export type OnUpdateProgressSubscriptionVariables = {
+  owner?: string | null;
 };
 
 export type OnUpdateProgressSubscription = {
@@ -900,13 +972,19 @@ export type OnUpdateProgressSubscription = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
+};
+
+export type OnDeleteProgressSubscriptionVariables = {
+  owner?: string | null;
 };
 
 export type OnDeleteProgressSubscription = {
@@ -926,11 +1004,13 @@ export type OnDeleteProgressSubscription = {
         updatedAt: string;
         contractBeardRemovalsId?: string | null;
         progressBeardRemovalsId?: string | null;
+        owner?: string | null;
       }>;
       nextToken?: string | null;
     } | null;
     type: string;
     createdAt: string;
     updatedAt: string;
+    owner?: string | null;
   } | null;
 };

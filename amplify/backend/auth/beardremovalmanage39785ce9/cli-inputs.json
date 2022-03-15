@@ -69,6 +69,6 @@
     "adminQueries": false,
     "authProviders": [],
     "hostedUIProviderCreds": "[]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://main.dit8faxhmcnw1.amplifyapp.com/\",\"http://localhost:3000/\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\",\"https://main.dit8faxhmcnw1.amplifyapp.com/\"]}"
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://main.dit8faxhmcnw1.amplifyapp.com/\",\"https://main.dit8faxhmcnw1.amplifyapp.com/\"],\"LogoutURLs\":[\"http://localhost:3000/\",\"https://main.dit8faxhmcnw1.amplifyapp.com/\"]}"
   }
 }
